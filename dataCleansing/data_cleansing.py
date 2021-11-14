@@ -29,7 +29,7 @@ dataDF = pd.read_csv("final_data2.csv", encoding="windows-1252")
 # newCopy1 = dataDF.copy()
 # newCopy1['abtest'] = label_encoder.fit_transform(dataDF['abtest'])
 # newCopy1['vehicleType'] = label_encoder.fit_transform(dataDF['vehicleType'])
-newCopy2 = dataDF[['price', 'vehicleType', 'powerPS', 'model', 'kilometer', 'fuelType', 'brand', 'notRepairedDamage']]
+newCopy2 = dataDF[['price', 'model', 'kilometer', 'brand']]
 newCopy2.to_csv("final_data3.csv")
 # print(dataDF["price"].max())
 # print(dataDF["price"].min())

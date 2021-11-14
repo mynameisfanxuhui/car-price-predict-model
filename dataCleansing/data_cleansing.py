@@ -25,12 +25,12 @@ label_encoder = preprocessing.LabelEncoder()
 # newCopy1['notRepairedDamage'] = label_encoder.fit_transform(newDF['notRepairedDamage'])
 # newCopy1.to_csv("final_data.csv")
 
-dataDF = pd.read_csv("C:\\Users\\torres_fan\\Desktop\\CS586\\carPricePredict\\car-price-predict-model\\dataCleansing\\final_data.csv", encoding="windows-1252")
-newCopy1 = dataDF.copy()
-newCopy1['abtest'] = label_encoder.fit_transform(dataDF['abtest'])
-newCopy1['vehicleType'] = label_encoder.fit_transform(dataDF['vehicleType'])
-newCopy2 = newCopy1[['price', 'abtest', 'vehicleType', 'gearbox', 'powerPS', 'model', 'kilometer', 'fuelType', 'brand', 'notRepairedDamage']]
-newCopy2.to_csv("final_data2.csv")
+# dataDF = pd.read_csv("C:\\Users\\torres_fan\\Desktop\\CS586\\carPricePredict\\car-price-predict-model\\dataCleansing\\final_data.csv", encoding="windows-1252")
+# newCopy1 = dataDF.copy()
+# newCopy1['abtest'] = label_encoder.fit_transform(dataDF['abtest'])
+# newCopy1['vehicleType'] = label_encoder.fit_transform(dataDF['vehicleType'])
+# newCopy2 = newCopy1[['price', 'abtest', 'vehicleType', 'gearbox', 'powerPS', 'model', 'kilometer', 'fuelType', 'brand', 'notRepairedDamage']]
+# newCopy2.to_csv("final_data2.csv")
 # print(dataDF["price"].max())
 # print(dataDF["price"].min())
 # print(dataDF["price"].mean())
@@ -43,3 +43,7 @@ newCopy2.to_csv("final_data2.csv")
 # print(dataDF["price"].min())
 # print(dataDF["price"].mean())
 # print(dataDF["price"].median())
+
+
+
+

@@ -1,0 +1,9 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/torresfan/Desktop/carPricePredictProject/car-price-predict-model/carpricepredict/target/scala-2.12/carpricepredict_2.12-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	predictModel[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/torresfan/Desktop/carPricePredictProject/car-price-predict-model/carpricepredict/target/scala-2.12/classes/predictModel[0m
+[0m[[0m[0mdebug[0m] [0m[0m	predictModel/predict$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/torresfan/Desktop/carPricePredictProject/car-price-predict-model/carpricepredict/target/scala-2.12/classes/predictModel/predict$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	predictModel/predict.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/torresfan/Desktop/carPricePredictProject/car-price-predict-model/carpricepredict/target/scala-2.12/classes/predictModel/predict.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

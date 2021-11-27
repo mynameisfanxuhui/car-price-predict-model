@@ -13,9 +13,6 @@ from collections import defaultdict
 
 def construct_line(label, line, labels_dict):
 	new_line = []
-	if label == "0" or label == "99999999":
-		print("label is zero", label)
-		return ""
 	new_line.append(label)
 	for i, item in enumerate(line):
 		new_item = "%s:%s" % (i + 1, item)

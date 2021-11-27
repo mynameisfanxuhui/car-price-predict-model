@@ -1,5 +1,6 @@
 # importing Pandas library
 import pandas as pd
+import numpy as np
 
 # Import label encoder
 #from sklearn import preprocessing
@@ -26,11 +27,19 @@ import pandas as pd
 # newCopy1.to_csv("final_data.csv")
 
 dataDF = pd.read_csv("final_data2.csv", encoding="windows-1252")
+
+df1 = dataDF.loc[(dataDF['price'] >= 500) & (dataDF['price'] < 999999)]
+df2 = df1.copy()
+print("type is", type(df1))
+df2["priceNormalized"] = np.log(df2["price"])
+newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage']]
+newCopy2.to_csv("final_data3.csv")
+
 # newCopy1 = dataDF.copy()
 # newCopy1['abtest'] = label_encoder.fit_transform(dataDF['abtest'])
 # newCopy1['vehicleType'] = label_encoder.fit_transform(dataDF['vehicleType'])
-newCopy2 = dataDF[['price', 'model', 'kilometer', 'brand']]
-newCopy2.to_csv("final_data3.csv")
+# newCopy2 = dataDF[['price', 'model', 'kilometer', 'brand']]
+# newCopy2.to_csv("final_data3.csv")
 # print(dataDF["price"].max())
 # print(dataDF["price"].min())
 # print(dataDF["price"].mean())

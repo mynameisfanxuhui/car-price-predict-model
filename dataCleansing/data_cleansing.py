@@ -5,6 +5,21 @@ import numpy as np
 # Import label encoder
 #from sklearn import preprocessing
 
+# Several data statistics
+# print(dataDF["price"].max())
+# print(dataDF["price"].min())
+# print(dataDF["price"].mean())
+# print(len(dataDF["model"].unique()))
+# print(len(dataDF["vehicleType"].unique()))
+# print(len(dataDF["brand"].unique()))
+
+# dataDF = pd.read_csv("C:\\Users\\torres_fan\\Desktop\\CS586\\final_data.csv")
+# print(dataDF["price"].max())
+# print(dataDF["price"].min())
+# print(dataDF["price"].mean())
+# print(dataDF["price"].median())
+
+
 # label_encoder object knows how to understand word labels.
 # label_encoder = preprocessing.LabelEncoder()
 
@@ -30,28 +45,30 @@ dataDF = pd.read_csv("final_data2.csv", encoding="windows-1252")
 
 df1 = dataDF.loc[(dataDF['price'] >= 500) & (dataDF['price'] < 999999)]
 df2 = df1.copy()
-print("type is", type(df1))
 df2["priceNormalized"] = np.log(df2["price"])
-newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage']]
+df2["combinedFeature"] = df2["model"] + df2["vehicleType"]
+
+# # first selection
+# newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage']]
+# newCopy2.to_csv("final_data3.csv")
+
+# second selection
+# newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv")
+
+# third selection
+newCopy2 = df2[['priceNormalized', 'kilometer', 'combinedFeature', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
 newCopy2.to_csv("final_data3.csv")
+
+#third selecton
+
 
 # newCopy1 = dataDF.copy()
 # newCopy1['abtest'] = label_encoder.fit_transform(dataDF['abtest'])
 # newCopy1['vehicleType'] = label_encoder.fit_transform(dataDF['vehicleType'])
 # newCopy2 = dataDF[['price', 'model', 'kilometer', 'brand']]
 # newCopy2.to_csv("final_data3.csv")
-# print(dataDF["price"].max())
-# print(dataDF["price"].min())
-# print(dataDF["price"].mean())
-# print(len(dataDF["model"].unique()))
-# print(len(dataDF["vehicleType"].unique()))
-# print(len(dataDF["brand"].unique()))
 
-# dataDF = pd.read_csv("C:\\Users\\torres_fan\\Desktop\\CS586\\final_data.csv")
-# print(dataDF["price"].max())
-# print(dataDF["price"].min())
-# print(dataDF["price"].mean())
-# print(dataDF["price"].median())
 
 
 

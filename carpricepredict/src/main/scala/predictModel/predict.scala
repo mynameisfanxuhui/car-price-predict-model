@@ -35,7 +35,7 @@ object predict extends Serializable{
         StructField("notRepairedDamage", IntegerType, nullable = true) ::
         Nil
     )
-    val data = spark.read.format("libsvm").load("libsvmResult1.txt")
+    val data = spark.read.format("libsvm").load("firstSelection.txt")
     //val data = spark.read.format("libsvm").load("text.txt")
     //data1.show(10)
     //data1.coalesce(1).write.csv("c1Output")

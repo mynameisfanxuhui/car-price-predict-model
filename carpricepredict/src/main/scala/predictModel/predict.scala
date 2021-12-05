@@ -35,7 +35,7 @@ object predict extends Serializable{
         StructField("notRepairedDamage", IntegerType, nullable = true) ::
         Nil
     )
-    val data = spark.read.format("libsvm").load("libsvmResult.txt")
+    val data = spark.read.format("libsvm").load("libsvmResult1.txt")
     //val data = spark.read.format("libsvm").load("text.txt")
     //data1.show(10)
     //data1.coalesce(1).write.csv("c1Output")
@@ -66,12 +66,27 @@ object predict extends Serializable{
     // Make predictions.
     val predictions1 = model1.transform(testData)
 
-    val evaluator1 = new RegressionEvaluator()
+    val rmseEvaluator = new RegressionEvaluator()
       .setLabelCol("label")
       .setPredictionCol("prediction")
       .setMetricName("rmse")
-    val rmse1 = evaluator1.evaluate(predictions1)
+
+    val maeEvaluator = new RegressionEvaluator()
+      .setLabelCol("label")
+      .setPredictionCol("prediction")
+      .setMetricName("mae")
+
+    val mseEvaluator = new RegressionEvaluator()
+      .setLabelCol("label")
+      .setPredictionCol("prediction")
+      .setMetricName("mse")
+
+    val rmse1 = rmseEvaluator.evaluate(predictions1)
     println("Random forest result: Root Mean Squared Error (RMSE) on test data = " + rmse1)
+    val maeRT = maeEvaluator.evaluate(predictions1)
+    println("Random forest result: MAE on test data = " + maeRT)
+    val mseRT = mseEvaluator.evaluate(predictions1)
+    println("Random forest result: MSE on test data = " + mseRT)
 
 
     // Train a GBT model.
@@ -93,13 +108,13 @@ object predict extends Serializable{
     // Select example rows to display.
     predictions.select("prediction", "label", "features").show(5)
 
-    // Select (prediction, true label) and compute test error.
-    val evaluator = new RegressionEvaluator()
-      .setLabelCol("label")
-      .setPredictionCol("prediction")
-      .setMetricName("rmse")
-    val rmse = evaluator.evaluate(predictions)
-    println(s"Gradient Boost Regression result: Root Mean Squared Error (RMSE) on test data = $rmse")
+
+    val rmse = rmseEvaluator.evaluate(predictions)
+    println("Gradient Boost Regression result: Root Mean Squared Error (RMSE) on test data = " + rmse)
+    val maeGRT = maeEvaluator.evaluate(predictions1)
+    println("Gradient Boost Regression result: MAE on test data = " + maeGRT)
+    val mseGRT = mseEvaluator.evaluate(predictions1)
+    println("Gradient Boost Regression result: MSE on test data = " + mseGRT)
 
     sc.stop()
   }

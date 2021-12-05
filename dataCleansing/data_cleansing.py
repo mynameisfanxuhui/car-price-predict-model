@@ -21,7 +21,9 @@ import numpy as np
 
 
 # label_encoder object knows how to understand word labels.
-# label_encoder = preprocessing.LabelEncoder()
+from sklearn import preprocessing
+
+label_encoder = preprocessing.LabelEncoder()
 
 # Encode labels in column 'species'.
 # df['species'] = label_encoder.fit_transform(df['species'])
@@ -46,28 +48,27 @@ dataDF = pd.read_csv("final_data2.csv", encoding="windows-1252")
 df1 = dataDF.loc[(dataDF['price'] >= 500) & (dataDF['price'] < 999999)]
 df2 = df1.copy()
 df2["priceNormalized"] = np.log(df2["price"])
-df2["combinedFeature"] = df2["model"] + df2["vehicleType"]
+df2["combinedFeature"] = df2["model"].map(str) + "," + df2["vehicleType"].map(str)
+df2['combinedFeatureCoded'] = label_encoder.fit_transform(df2['combinedFeature'])
 
-# # first selection
+
+# first selection
 # newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage']]
-# newCopy2.to_csv("final_data3.csv")
+# newCopy2.to_csv("final_data3.csv", index=False)
 
 # second selection
-# newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
-# newCopy2.to_csv("final_data3.csv")
+newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+newCopy2.to_csv("final_data3.csv", index=False)
 
-# third selection
-newCopy2 = df2[['priceNormalized', 'kilometer', 'combinedFeature', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
-newCopy2.to_csv("final_data3.csv")
+#third selection, combined feature, compare to second selection
+# newCopy2 = df2[['priceNormalized', 'kilometer', 'combinedFeatureCoded', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
 
-#third selecton
+# forth selection, combined feature, compare to first selection
+newCopy2 = df2[['priceNormalized', 'combinedFeatureCoded', 'kilometer', 'gearbox', 'fuelType', 'notRepairedDamage']]
+newCopy2.to_csv("final_data3.csv", index=False)
 
 
-# newCopy1 = dataDF.copy()
-# newCopy1['abtest'] = label_encoder.fit_transform(dataDF['abtest'])
-# newCopy1['vehicleType'] = label_encoder.fit_transform(dataDF['vehicleType'])
-# newCopy2 = dataDF[['price', 'model', 'kilometer', 'brand']]
-# newCopy2.to_csv("final_data3.csv")
 
 
 

@@ -25,7 +25,7 @@ def construct_line(label, line, labels_dict):
 
 
 input_file = "C:\\Users\\torres_fan\\Desktop\\CS586\\carPricePredict\\car-price-predict-model\\final_data3.csv"
-output_file = "thirdSelection.txt"
+output_file = "forthSelection.txt"
 
 # try:
 # 	label_index = int( sys.argv[3] )

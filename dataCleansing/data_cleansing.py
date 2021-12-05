@@ -57,15 +57,49 @@ df2['combinedFeatureCoded'] = label_encoder.fit_transform(df2['combinedFeature']
 # newCopy2.to_csv("final_data3.csv", index=False)
 
 # second selection
-newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
-newCopy2.to_csv("final_data3.csv", index=False)
+# newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
 
-#third selection, combined feature, compare to second selection
+#third selection, combined feature, compare to second se111lection
 # newCopy2 = df2[['priceNormalized', 'kilometer', 'combinedFeatureCoded', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
 # newCopy2.to_csv("final_data3.csv", index=False)
 
 # forth selection, combined feature, compare to first selection
-newCopy2 = df2[['priceNormalized', 'combinedFeatureCoded', 'kilometer', 'gearbox', 'fuelType', 'notRepairedDamage']]
+# newCopy2 = df2[['priceNormalized', 'combinedFeatureCoded', 'kilometer', 'gearbox', 'fuelType', 'notRepairedDamage']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+
+# fifth selection, without 'notRepairedDamage'
+# newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'fuelType', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+
+# # sixth selection, combined feature of fifth selection
+# newCopy2 = df2[['priceNormalized', 'kilometer', 'combinedFeatureCoded', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+#
+#
+# # seventh selection, without 'fuelType'
+# newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'gearbox', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+#
+# # eighth selection, combined feature of seven selection
+# newCopy2 = df2[['priceNormalized', 'kilometer', 'combinedFeatureCoded', 'gearbox', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+#
+# # ninth selection, without 'gearbox'
+# newCopy2 = df2[['priceNormalized', 'model', 'kilometer', 'brand', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+#
+# # tenth selection, combined feature of nine selection
+# newCopy2 = df2[['priceNormalized', 'kilometer', 'combinedFeatureCoded', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+#
+#
+# # eleventh selection, without 'kilometer'
+# newCopy2 = df2[['priceNormalized', 'model', 'brand', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
+# newCopy2.to_csv("final_data3.csv", index=False)
+#
+# # twelve selection, combined feature of eleven selection
+newCopy2 = df2[['priceNormalized', 'combinedFeatureCoded', 'gearbox', 'fuelType', 'notRepairedDamage', 'vehicleType']]
 newCopy2.to_csv("final_data3.csv", index=False)
 
 
